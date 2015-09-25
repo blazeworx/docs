@@ -316,7 +316,7 @@ The `flip` method swaps the collection's keys with their corresponding values:
 <a name="method-forget"></a>
 #### `forget()` {#collection-method}
 
-The `forget` method removes an item from the collection by its key:
+The `forget` method removes an item from the collection by a single key:
 
     $collection = collect(['name' => 'taylor', 'framework' => 'laravel']);
 
@@ -325,6 +325,16 @@ The `forget` method removes an item from the collection by its key:
     $collection->all();
 
     // [framework' => 'laravel']
+
+Or an array of keys:
+
+    $collection = collect(['name' => 'taylor', 'framework' => 'laravel', 'lang' => 'php']);
+
+    $collection->forget(['framework', 'lang']);
+
+    $collection->all();
+
+    // [name' => 'taylor']
 
 > **Note:** Unlike most other collection methods, `forget` does not return a new modified collection; it modifies the collection it is called on.
 
